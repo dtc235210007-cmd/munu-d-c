@@ -1,47 +1,66 @@
-/* Reset font và lề mặc định */
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
 }
 
-#menu, #menu ul, #menu li {
+/* Thanh menu ngang bao ngoài */
+#menu {
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+    border: 1px solid #CDCDCD;
+}
+
+#menu ul, 
+#menu li {
     padding: 0;
     margin: 0;
 }
 
-/* Định dạng các thẻ mục chọn (li) */
+/* Cho các mục menu chính dàn hàng ngang bằng float: left */
 #menu li {
+    position: relative;
+    float: left;
     list-style: none;
-    position: relative; /* Làm điểm neo tọa độ cho menu cấp con */
-    width: 160px;       /* Mở rộng bề ngang để hiển thị rõ tên môn học */
-    height: 30px;
-    padding: 0 15px;
-    background-color: black;
-    line-height: 30px;
-    cursor: pointer;
-    white-space: nowrap; /* Tránh chữ dài bị rớt dòng */
+    margin: 0;
+    padding: 0;
 }
 
-/* Định dạng thẻ liên kết a bên trong */
+/* Định dạng các liên kết menu chính */
 #menu li a {
+    width: 100px;
+    height: 30px;
+    display: block;
     text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    background-color: black;
     color: white;
-    display: block;      /* Cho phép click vào toàn bộ ô li */
 }
 
-/* Hiệu ứng hover đổi màu nền */
-#menu li:hover {
+/* Định dạng riêng cho menu con (cần độ rộng lớn hơn để vừa chữ) */
+#menu ul ul li a {
+    width: 220px;
+    text-align: left;
+    padding-left: 12px;
+}
+
+/* Hiệu ứng rê chuột: chuyển màu nền đỏ */
+#menu li a:hover {
     background-color: red;
 }
 
-/* Menu con cấp 2: Mặc định bị ẩn */
+/* Menu con cấp 2: buông xuống ngay dưới menu cha và mặc định ẩn */
 #menu ul ul {
     position: absolute;
-    top: 0;
-    left: 190px;         /* Đẩy sang phải: width (160px) + padding trái/phải (30px) = 190px */
+    top: 30px;        /* Nằm ngay bên dưới thanh menu chính cao 30px */
+    left: 0;          /* Thẳng hàng với mục cha */
     visibility: hidden;
+    z-index: 1000;
 }
 
-/* Khi hover chuột vào li cha thì hiển thị menu con bên cạnh */
+/* Khi rê chuột vào mục cha thì bung menu con xuống */
 #menu ul li:hover > ul {
     visibility: visible;
 }
