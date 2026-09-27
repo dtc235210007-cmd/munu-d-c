@@ -1,0 +1,47 @@
+/* Reset font và lề mặc định */
+body {
+    font-family: Arial, sans-serif;
+}
+
+#menu, #menu ul, #menu li {
+    padding: 0;
+    margin: 0;
+}
+
+/* Định dạng các thẻ mục chọn (li) */
+#menu li {
+    list-style: none;
+    position: relative; /* Làm điểm neo tọa độ cho menu cấp con */
+    width: 160px;       /* Mở rộng bề ngang để hiển thị rõ tên môn học */
+    height: 30px;
+    padding: 0 15px;
+    background-color: black;
+    line-height: 30px;
+    cursor: pointer;
+    white-space: nowrap; /* Tránh chữ dài bị rớt dòng */
+}
+
+/* Định dạng thẻ liên kết a bên trong */
+#menu li a {
+    text-decoration: none;
+    color: white;
+    display: block;      /* Cho phép click vào toàn bộ ô li */
+}
+
+/* Hiệu ứng hover đổi màu nền */
+#menu li:hover {
+    background-color: red;
+}
+
+/* Menu con cấp 2: Mặc định bị ẩn */
+#menu ul ul {
+    position: absolute;
+    top: 0;
+    left: 190px;         /* Đẩy sang phải: width (160px) + padding trái/phải (30px) = 190px */
+    visibility: hidden;
+}
+
+/* Khi hover chuột vào li cha thì hiển thị menu con bên cạnh */
+#menu ul li:hover > ul {
+    visibility: visible;
+}
